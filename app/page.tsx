@@ -74,7 +74,21 @@ export default function Home() {
 
   return (
     <div className="flex h-screen bg-gpt-bg text-gpt-text">
-      <Sidebar onNewChat={startNewChat} />
+      {/* Sidebar - Hidden on mobile, overlay on tablet */}
+      <div className="hidden lg:block">
+        <Sidebar onNewChat={startNewChat} />
+      </div>
+      
+      {/* Mobile Sidebar Overlay */}
+      <div className="lg:hidden fixed inset-0 z-50 hidden" id="mobile-sidebar">
+        <div className="absolute inset-0 bg-black/50" onClick={() => {
+          document.getElementById('mobile-sidebar')?.classList.add('hidden')
+        }}></div>
+        <div className="relative w-64">
+          <Sidebar onNewChat={startNewChat} />
+        </div>
+      </div>
+      
       <ChatArea 
         messages={messages} 
         onSendMessage={sendMessage} 

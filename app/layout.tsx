@@ -1,12 +1,18 @@
 import './globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
   title: 'RahulGPT - AI Assistant',
   description: 'RahulGPT - Advanced AI Assistant powered by OpenRouter and xAI Grok. Experience the future of AI conversation.',
   keywords: 'AI, assistant, chatbot, artificial intelligence, OpenAI, GPT',
   authors: [{ name: 'RahulGPT Team' }],
-  viewport: 'width=device-width, initial-scale=1',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({
