@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { SendIcon, ArrowUpIcon, SparklesIcon, ZapIcon, BrainIcon, RocketIcon } from 'lucide-react'
+import { SendIcon, ArrowUpIcon, SparklesIcon, ZapIcon } from 'lucide-react'
 import { Message } from '@/app/page'
 import MessageBubble from './MessageBubble'
 
@@ -51,33 +51,6 @@ export default function ChatArea({ messages, onSendMessage, isLoading }: ChatAre
     }
   }
 
-  const quickPrompts = [
-    {
-      icon: BrainIcon,
-      title: "Explain concepts",
-      subtitle: "Break down complex topics",
-      prompt: "Explain quantum computing in simple terms with real-world examples"
-    },
-    {
-      icon: SparklesIcon,
-      title: "Creative writing",
-      subtitle: "Stories, poems, scripts",
-      prompt: "Write a creative short story about an AI discovering emotions"
-    },
-    {
-      icon: ZapIcon,
-      title: "Productivity boost",
-      subtitle: "Plan and organize",
-      prompt: "Help me create a productive daily routine for better work-life balance"
-    },
-    {
-      icon: RocketIcon,
-      title: "Problem solving",
-      subtitle: "Find solutions",
-      prompt: "What are innovative ways to reduce plastic waste in daily life?"
-    }
-  ]
-
   return (
     <div className="flex-1 flex flex-col relative bg-gradient-to-br from-gpt-bg to-gpt-ai-msg">
       {/* Messages Area */}
@@ -94,32 +67,6 @@ export default function ChatArea({ messages, onSendMessage, isLoading }: ChatAre
                   Your intelligent AI companion powered by cutting-edge technology. 
                   Ask anything, explore ideas, and unlock your creativity.
                 </p>
-              </div>
-              
-              {/* Quick Action Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                {quickPrompts.map((prompt, index) => (
-                  <button
-                    key={index}
-                    onClick={() => onSendMessage(prompt.prompt)}
-                    className="glass-effect p-6 text-left hover:bg-gpt-hover/30 border border-gpt-border/50 hover:border-gpt-accent/50 rounded-2xl transition-all duration-300 card-hover group animate-slide-up"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                    disabled={isLoading}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gpt-button/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                        <prompt.icon size={20} className="text-gpt-accent" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-gpt-text font-semibold mb-1 group-hover:text-gpt-accent transition-colors duration-200">
-                          {prompt.title}
-                        </h3>
-                        <p className="text-sm text-gpt-text-muted mb-2">{prompt.subtitle}</p>
-                        <p className="text-xs text-gpt-text-muted/70 line-clamp-2">{prompt.prompt}</p>
-                      </div>
-                    </div>
-                  </button>
-                ))}
               </div>
               
               {/* Additional Info */}
