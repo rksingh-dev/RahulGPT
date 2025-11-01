@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
         'X-Title': 'RahulGPT'
       },
       body: JSON.stringify({
-        model: 'deepseek/deepseek-chat-v3.1:free',
+        model: 'openai/gpt-oss-20b:free',
         messages: messages,
         temperature: 0.7,
         max_tokens: 4000,
